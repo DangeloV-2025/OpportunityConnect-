@@ -1,0 +1,148 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+.header {
+    background-color: #023e8a;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: white;
+    color: #00B4D8;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #023e8a;
+}
+
+.cta-button:hover {
+    background-color: #f0f8ff;
+    color: #00B4D8;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #023e8a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Styling for the Scholarships Page */
+header {
+    text-align: center;
+    background-color: #023e8a;
+    color: white;
+    padding: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: #00B4D8;
+    text-decoration: none;
+    border: 2px solid #023e8a;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #f0f8ff;
+    color: #00B4D8;
+}
+
+.scholarship-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.scholarship-box {
+    width: 30%;
+    background-color: #f0f8ff;
+    border: 2px solid #023e8a;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.scholarship-box h2 {
+    color: #00B4D8;
+    margin-bottom: 10px;
+}
+
+.scholarship-box a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #023e8a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.scholarship-box a:hover {
+    background-color: #023e8a;
+}
+
+footer {
+    text-align: center;
+    background-color: #023e8a;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
