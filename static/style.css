@@ -9,6 +9,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f0f8ff;
     color: #333;
+    overflow-y: auto
 }
 
 .header {
@@ -75,7 +76,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: absolute;
+    position: sticky;
     bottom: 0;
     width: 100%;
 }
@@ -103,7 +104,7 @@ header {
     color: #00B4D8;
 }
 
-.scholarship-container {
+/* .scholarship-container {
     display: flex;
     justify-content: space-around;
     margin: 20px;
@@ -131,7 +132,7 @@ header {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-}
+} */
 
 .scholarship-box a:hover {
     background-color: #023e8a;
@@ -145,4 +146,61 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.scholarship-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between each scholarship box */
+    padding: 20px;
+}
+
+/* Scholarship boxes styled as horizontal cards */
+.scholarship-box {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder for image in each scholarship box */
+.image-placeholder {
+    width: 100px;            /* Set width */
+    height: 100px;           /* Set height */
+    object-fit: cover;       /* Adjusts how the image fits in the box */
+    background-color: #e0e0e0; /* Background color */
+    border: 2px dashed #ccc; /* Border styling */
+    margin-right: 20px;      /* Margin between items */
+    flex-shrink: 0;          /* Prevent shrinking */
+}
+
+/* Content inside each scholarship box */
+.scholarship-box .content h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.scholarship-box .content p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Style for Learn More link */
+.scholarship-box .content a {
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.scholarship-box .content a:hover {
+    background-color: #555;
 }
