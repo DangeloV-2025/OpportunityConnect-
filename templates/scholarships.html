@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scholarships</title>
-  <link rel="stylesheet" href="../static/scholarship_styles.css">
-</head>
-<body>
-  <header>
-    <h1>Scholarships</h1>
-    <button class="filter-button">Filter</button>
-  </header>
+{% extends "base.html" %}
+{% block title %}Scholarships - FGLI Support{% endblock %}
 
-  <main>
-    <div id="scholarship-list" class="scholarship-list">
-      <!-- Scholarships will be dynamically rendered here -->
-    </div>
-  </main>
-
-  <script src="scholarships.js"></script>
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Scholarships</h1>
+    <p>Information about scholarships available for FGLI students.</p>
+    <!-- Add your scholarship content here -->
+</div>
+{% endblock %}

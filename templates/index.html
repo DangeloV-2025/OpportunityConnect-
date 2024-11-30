@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home - FGLI Support{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Welcome to FGLI Support</h1>
+    <p class="lead">Resources and community for first-generation, low-income students.</p>
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{{ url_for('scholarships') }}" class="btn btn-primary btn-block">Scholarships</a>
+        </div>
+        <div class="col-md-3">
+            <a href="{{ url_for('fly_ins') }}" class="btn btn-primary btn-block">Fly-Ins</a>
+        </div>
+        <div class="col-md-3">
+            <a href="{{ url_for('precollege') }}" class="btn btn-primary btn-block">Pre-College Programs</a>
+        </div>
+        <div class="col-md-3">
+            <a href="{{ url_for('community') }}" class="btn btn-primary btn-block">Community</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
