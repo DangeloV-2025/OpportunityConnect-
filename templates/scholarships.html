@@ -2,9 +2,48 @@
 {% block title %}Scholarships - FGLI Support{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="mt-5">Scholarships</h1>
-    <p>Information about scholarships available for FGLI students.</p>
-    <!-- Add your scholarship content here -->
+<div class="container mt-3 narrow-container">
+    <form method="GET" action="{{ url_for('scholarships') }}" class="form-inline mb-4">
+        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search Scholarships" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <h1>Scholarships</h1>
+    <div class="scholarships-grid">
+        {% for scholarship in scholarships %}
+        <div class="scholarship-card">
+            <h5 class="card-title">{{ scholarship.name }}</h5>
+            <p class="card-text"><strong>Amount:</strong> {{ scholarship.amount }}</p>
+            <p class="card-text"><strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#scholarshipModal{{ scholarship.id }}">
+                More Info
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="scholarshipModal{{ scholarship.id }}" tabindex="-1" aria-labelledby="scholarshipModalLabel{{ scholarship.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg custom-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="scholarshipModalLabel{{ scholarship.id }}">{{ scholarship.name }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Amount:</strong> {{ scholarship.amount }}</p>
+                        <p><strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+                        <p>{{ scholarship.description }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
+
 {% endblock %}
