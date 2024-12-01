@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from models import db, Scholarship
+from models import db, Scholarship, FlyIn
 
 app = Flask(__name__)
 
@@ -29,9 +29,18 @@ def scholarships():
         scholarships = Scholarship.query.all()  # Call the .all() method
     return render_template('scholarships.html', scholarships=scholarships)
 
-@app.route('/fly-ins')
-def fly_ins():
-    return render_template('fly_ins.html')
+
+@app.route('/flyins')
+def flyins():
+    search_query = request.args.get('search', '')
+    if search_query:
+        flyins = FlyIn.query.filter(FlyIn.name.ilike(f'%{search_query}%')).all()
+    else:
+        flyins = FlyIn.query.all()  # Call the .all() method
+    return render_template('flyins.html', flyins=flyins)
+
+
+
 
 @app.route('/precollege')
 def precollege():

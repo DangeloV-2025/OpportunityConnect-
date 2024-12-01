@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Fly-Ins - FGLI Support{% endblock %}
+
+{% block content %}
+<div class="container mt-3 narrow-container">
+    <form method="GET" action="{{ url_for('flyins') }}" class="form-inline mb-4">
+        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search Fly-Ins" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <h1>Fly-Ins</h1>
+    <div class="flyins-grid">
+        {% for flyin in flyins %}
+        <div class="flyin-card">
+            <h5 class="card-title">{{ flyin.name }}</h5>
+            <p class="card-text"><strong>Date:</strong> {{ flyin.deadline }}</p>
+            <p class="card-text"><strong>Location:</strong> {{ flyin.amount }}</p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#flyinModal{{ flyin.id }}">
+                More Info
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="flyinModal{{ flyin.id }}" tabindex="-1" aria-labelledby="flyinModalLabel{{ flyin.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg custom-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="flyinModalLabel{{ flyin.id }}">{{ flyin.name }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Date:</strong> {{ flyin.deadline }}</p>
+                        <p><strong>Location:</strong> {{ flyin.amount }}</p>
+                        <p>{{ flyin.description }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ flyin.apply_link }}" class="btn btn-primary" target="_blank">Apply Now</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

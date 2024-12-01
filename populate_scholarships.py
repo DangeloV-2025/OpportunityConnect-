@@ -1,8 +1,8 @@
 from app import app
+# populate_db.py
 from models import db, Scholarship
 
-# Run within the app context
-with app.app_context():
+def populate_scholarships():
     scholarships = [
         Scholarship(
             name='Cameron Impact Scholarship',
@@ -24,14 +24,14 @@ with app.app_context():
             deadline='2024-09-27',
             description='Connects high-achieving, low-income students with full scholarships to top colleges.',
             apply_link='https://www.questbridge.org/high-school-students/national-college-match'
-            ),
+        ),
         Scholarship(
             name='Horatio Alger Scholarship Award',
             amount='Varies',
             deadline='2024-10-25',
             description='Assists high school seniors who have faced and overcome great obstacles.',
             apply_link='https://scholars.horatioalger.org/scholarships/'
-            ),
+        ),
         Scholarship(
             name='Coca-Cola Scholars Program',
             amount='$20,000',
@@ -74,12 +74,9 @@ with app.app_context():
             description='Provides scholarships to high school seniors who demonstrate ambition and self-drive.',
             apply_link='https://us.axa.com/axa-foundation/AXA-achievement-scholarship.html'
         )
-
     ]
 
-    # Add to the session
+    # Add scholarships to the session
     db.session.bulk_save_objects(scholarships)
-    # Commit changes
     db.session.commit()
-
     print("Scholarships added to the database!")
